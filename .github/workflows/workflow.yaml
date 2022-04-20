@@ -18,7 +18,24 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: hello myname is 
+      - name: build images
         run: |
-             uname -a
-             id
+             docker build -t myapp:1.0.0
+
+      - name: check container is runner
+        run: |
+          if [ ! -z "$(docker ps |grep myapp)" ];then
+              docker stop myapp
+              docker rm myapp
+              docker run -d --name myapp -p 8080:80 myapp:1.0.2
+
+          else
+              docker run -d --name myapp -p 8080:80 myapp:1.0.2
+
+          fi        
+
+     
+      - name:  docker run
+        run: |
+             docker run -d --name myapp -p 8082:8080 myapp:1.0.0
+
