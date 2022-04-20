@@ -36,7 +36,5 @@ jobs:
           fi        
 
      
-      - name:  docker run
-        run: |
-             docker run -d --name myapp -p 8080:8080 myapp:1.0.0
+    
 
