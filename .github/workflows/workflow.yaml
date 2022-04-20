@@ -25,18 +25,18 @@ jobs:
 
       - name: check container is runner
         run: |
-          if [ ! -z "$(docker ps |grep myapp)" ];then
-              docker stop myapp
+          if [ ! -z "$(docker ps |grep myapp2)" ];then
+              docker stop myapp2
               docker rm myapp
-              docker run -d --name myapp -p 8080:80 myapp:1.0.0
+              docker run -d --name myapp2 -p 8080:80 myapp:1.0.0
 
           else
-              docker run -d --name myapp -p 8080:80 myapp:1.0.0
+              docker run -d --name myapp2 -p 8080:80 myapp:1.0.0
 
           fi        
 
      
       - name:  docker run
         run: |
-             docker run -d --name myapp -p 8080:8080 myapp:1.0.0
+             docker run -d --name myapp2 -p 8080:8080 myapp:1.0.0
 
