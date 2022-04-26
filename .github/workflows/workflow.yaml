@@ -34,7 +34,12 @@ jobs:
               docker run -d --name myapp -p 8080:80 myapp:1.0.0
 
           fi        
-
-     
+  test:
+    runs-on: self-hosted    
+    steps:
+      - uses: actions/checkout@v2
+      - name: testing
+        run: |
+             curl localhost:8080    
     
 
