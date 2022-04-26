@@ -34,6 +34,3 @@ jobs:
               docker run -d --name myapp -p 8080:80 myapp:1.0.0
 
           fi
-    
-    
-
