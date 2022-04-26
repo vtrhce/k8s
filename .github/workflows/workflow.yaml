@@ -33,8 +33,10 @@ jobs:
           else
               docker run -d --name myapp -p 8080:80 myapp:1.0.0
 
-          fi        
+          fi
+jobs:                  
   test:
+    needs: build
     runs-on: self-hosted    
     steps:
       - uses: actions/checkout@v2
